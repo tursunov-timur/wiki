@@ -1,0 +1,3 @@
+<div *ngFor="let theme of themes" (click)="openTheme(theme)">
+    <a [routerLink]="['theme', theme.ThemeUrl]" *ngIf="theme.IsActive">{{theme.ThemeName}}</a>
+</div>

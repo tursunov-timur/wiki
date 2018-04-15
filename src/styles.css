@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+body,html {
+    padding: 0;
+    margin: 0;
+}
+
+.conteiner {
+    width: 100%;
+    height: 100%; 
+    display: table; 
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    position: fixed;
+    padding: 5px 0;
+    border-bottom: solid 1px #000;
+    display: table-row;     
+}
+
+.logo {
+    max-width: 25px;
+}
+
+.main-title {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 10px;
+    position: absolute;
+    top: 7px;    
+}
+
+.footer {
+    position: fixed;
+    display: table-row; 
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    text-align: center; 
+    padding: 10px 0;
+    border-top: solid 1px #000;
+    font-weight: 600;
+}
+
+.copyright {
+    padding: 0 10px;
+}
+.main-wraper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 35px;
+    display: table-row;-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height:100%;
+    padding: 0 20px;     
+}
+.left-panel {
+    width: 30%;
+    height: 100%;
+    float: left;
+    border-right: solid 1px #000;
+}
+
+.main-panel {
+    width: 70%;
+    height: 100%;
+    font-size: 18px;
+}
+
+.theme-title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.theme-description {
+    font-style: italic;
+}
+
+.admin-panel {
+    padding: 40px;
+}
+
+.admin-panel-title {
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+<div>
+    <div *ngFor="let category of categories">
+        <div>  
+            <a [routerLink]="['category', category.CategoryUrl]" >{{category.CategoryName}}</a>
+            <app-menu-theme-element [currentCategory]="category"></app-menu-theme-element>            
+            <!--<app-theme-preview  class="main-panel" [currentTheme]="selectedTheme"></app-theme-preview>-->
+        </div>
+    </div>
+</div>
