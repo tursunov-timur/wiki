@@ -1,10 +1,15 @@
 <div class="conteiner">
   <app-header class="header"></app-header>
   <div class="main-wraper">
-      <app-menu class="left-panel"></app-menu>
-      <app-theme-preview>
-          <router-outlet name="theme-preview"></router-outlet>
-      </app-theme-preview>
+      <div class="left-panel">
+        <app-menu ></app-menu>
+      </div>
+      <!--<app-theme-preview>-->
+        <div  class="right-panel"> 
+            <!--<router-outlet name="preview"></router-outlet>-->
+            <router-outlet></router-outlet>
+        </div>
+      <!--</app-theme-preview>-->
   </div>
   <app-footer class="footer"></app-footer>
 </div>

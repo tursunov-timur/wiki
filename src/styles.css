@@ -67,10 +67,11 @@ body,html {
     border-right: solid 1px #000;
 }
 
-.main-panel {
-    width: 70%;
+.right-panel {
+    width: 66%;
     height: 100%;
     font-size: 18px;
+    float: right;
 }
 
 .theme-title {
@@ -90,4 +91,23 @@ body,html {
 
 .admin-panel-title {
     text-align: center;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
 }

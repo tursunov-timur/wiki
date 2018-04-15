@@ -36,8 +36,7 @@ export class MenuComponent implements OnInit {
       //.filter(res => res)     
       .subscribe(
         data => this.categories = data
-      );
-      
+      );      
   }
 
   loadTheme(currentCategory: Category){
@@ -46,6 +45,10 @@ export class MenuComponent implements OnInit {
     .subscribe(
       data => this.themes = data
     );   
+  }
+
+  showCategoryList(currentCategory: Category) {
+    this.categoryService.setCurrentCategory(currentCategory);
   }
 
 }

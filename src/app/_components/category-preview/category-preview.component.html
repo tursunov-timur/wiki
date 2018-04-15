@@ -1,0 +1,9 @@
+<div *ngIf="currentCategory">
+  <div class="theme-title">          
+    {{currentCategory.CategoryName}}
+  </div>
+  <div *ngFor="let theme of themes">
+      <span *ngIf="theme.IsActive">{{theme.ThemeName}}</span>
+  </div>
+</div>
+

@@ -1,3 +1,5 @@
-<div *ngFor="let theme of themes" (click)="openTheme(theme)">
-    <a [routerLink]="['theme', theme.ThemeUrl]" *ngIf="theme.IsActive">{{theme.ThemeName}}</a>
+<div *ngFor="let theme of themes">
+    <!--<a routerLink='/theme'>{{theme.ThemeName}}</a>-->
+    <!--<a [routerLink]="[{ outlets: { preview: '/theme/:theme.ThemeUrl' } }]" (click)="openTheme(theme)">{{theme.ThemeName}}</a>-->
+    <a [routerLink]="['/theme', theme.ThemeUrl]" (click)="openTheme(theme)">{{theme.ThemeName}}</a> 
 </div>

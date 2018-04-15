@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule }       from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideRoutes} from '@angular/router';
 
 
-import { AppRouterAdmin } from './_components/routing/routing.module';
+import { AppRouterAdmin } from './_components/routing/admin-routing.module';
 import { HeaderComponent } from './_components/header/header.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { provideRoutes} from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
