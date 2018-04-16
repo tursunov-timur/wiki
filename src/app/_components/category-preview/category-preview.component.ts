@@ -19,13 +19,26 @@ export class CategoryPreviewComponent implements OnInit {
     private themeService: ThemeService
   ) { }
 
+  ngOnChanges(){
+    this.categoryService.getCurrentCategory()
+    .subscribe( data => this.currentCategory = data);
+    this.themeService.getThemes()
+   // .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
+    .subscribe(
+      data => this.themes = data
+    ); 
+  }
+  
+
   ngOnInit() {
+    console.log("cat preview");
     this.categoryService.getCurrentCategory()
       .subscribe( data => this.currentCategory = data);
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
+    //.map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
     .subscribe(
       data => this.themes = data
-    );   
+    ); 
+   // console.log(this.currentCategory.CategoryName);
   }
 }

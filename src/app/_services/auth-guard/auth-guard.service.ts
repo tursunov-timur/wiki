@@ -14,6 +14,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
  
+    this.router.navigate(['/admin/login']);
     return false;
     //return this.checkLogin(url);
   }
@@ -29,7 +30,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     this.authService.redirectUrl = url;
  
     // Navigate to the login page
-    this.router.navigate(['/login']);
+    this.router.navigate(['/admin/login']);
     return false;
   }
 }

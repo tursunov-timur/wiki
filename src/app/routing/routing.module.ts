@@ -10,7 +10,8 @@ import { MainPanelComponent } from '../_components/main-panel/main-panel.compone
 import { MenuThemeElementComponent } from '../_components/menu-theme-element/menu-theme-element.component';
 //import { AppRouterAdmin } from '../../admin/_components/routing/admin-routing.module';
 import { AddThemeComponent } from '../../admin/_components/add-theme/add-theme.component';
-import { AuthGuard }  from '../_services/auth-guard/auth-guard.service'
+import { AuthGuard }  from '../_services/auth-guard/auth-guard.service';
+
 
 
 /*const ADMIN_PANEL_ROUTES: Routes = [
@@ -22,7 +23,9 @@ const routes: Routes = [
       { path: 'theme/:theme.ThemeUrl', component: ThemePreviewComponent },    
       { path: 'category/:category.CategoryUrl', component: CategoryPreviewComponent }
   ]},
-  { path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard] }//, children:[
+  { path: 'admin', component: AdminPanelComponent }//, canActivate: [AuthGuard] }//, children: [
+     
+  
    // { path: 'theme/add-new-theme', component: AddThemeComponent }
     //{ path: '', loadChildren: ()=> AppRouterAdmin}
 //]}

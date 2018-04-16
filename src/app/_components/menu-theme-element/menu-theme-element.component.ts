@@ -29,7 +29,7 @@ export class MenuThemeElementComponent implements OnInit {
     ) { }
 
   ngOnInit() {  
-    console.log(this.currentCategory.CategoryName);  
+    //console.log(this.currentCategory.CategoryName);  
     this.themeService.getThemes()
     .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
     .subscribe(
@@ -39,7 +39,7 @@ export class MenuThemeElementComponent implements OnInit {
 
 
   openTheme(theme: Theme){  
-     console.log(theme.ThemeName);
+     //console.log(theme.ThemeName);
        this.selectedTheme = theme;
        this.themeService.setSelectedTheme(theme);
    }

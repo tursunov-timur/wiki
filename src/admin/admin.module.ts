@@ -16,6 +16,9 @@ import { ThemePreviewComponent } from './_components/theme-preview/theme-preview
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './_components/login/login.component';
+import { CategoryService } from '../app/_services/category/category.service';
+import { ThemeService } from '../app/_services/theme/theme.service';
 
 
 @NgModule({
@@ -37,7 +40,12 @@ import { environment } from '../environments/environment';
     MenuComponent,
     ThemePreviewComponent,
     HeaderComponent,
-    FooterComponent  
-  ]  
+    FooterComponent,
+    LoginComponent
+  ],
+  providers: [
+    CategoryService,
+    ThemeService
+  ] 
 })
 export class AdminModule { }

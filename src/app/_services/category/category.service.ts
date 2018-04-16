@@ -8,13 +8,17 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { FirebaseListObservable  } from 'angularfire2/database-deprecated';
 import { Theme } from '../../_models/ThemeModel';
 import { Category } from '../../_models/CategoryModel';
+import { Observer } from 'rxjs/Observer';
 
 @Injectable()
 export class CategoryService {
 
   categoriesData: Observable<Category[]>;   
+  private categoryObserver: Observer<Category>; 
   private selectedCategory = new Subject<Category>();
+  //currentCategory = this.categoryObserver.asObservable();
   currentCategory = this.selectedCategory.asObservable();
+  
 
   constructor(private http: HttpClientModule,
               private firebase: AngularFireDatabase) { }
@@ -26,10 +30,14 @@ export class CategoryService {
 
   setCurrentCategory(category: Category) {
     this.selectedCategory.next(category);
+    this.getCurrentCategory();
+    console.log(category.CategoryName);
+   // this.categoryObserver.next(category);;
   }
 
   getCurrentCategory():Observable<Category> {
-    return this.currentCategory;
+    console.log("get");
+    return this.currentCategory;    
   }
 
   /*addCategory(category: Category){

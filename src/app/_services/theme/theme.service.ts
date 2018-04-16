@@ -37,6 +37,10 @@ export class ThemeService {
       this.selectedTheme.next(theme);
       //console.log(this.selectedTheme.);
   }
+
+  addTheme(theme: Theme) {
+    this.firebase.list<Theme>('/themes').push(theme);
+  }
   
 
   //sendTheme(selectedTheme: Theme){

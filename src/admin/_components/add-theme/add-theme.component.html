@@ -1,7 +1,70 @@
-<h2>Add theme form</h2>
-<h3><i>Enter data:</i></h3>
-<div class="form-control">
-  <label class="center-block">Name:
-    <input class="form-control" [formControl]="themeName">
-  </label>
-</div>
+<!--<h3>Add theme form</h3>
+<span><i>Enter data:</i></span>
+<div class="form-group">
+    <form name="addTheme" id="addTheme">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Theme Name</label>
+          <input type="text" class="form-control" name="themeName" placeholder="Enter theme name" [(ngModel)]="ThemeName">         
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Theme Url</label>
+          <input type="text" class="form-control" name="themeUrl" placeholder="Enter theme url" [(ngModel)]="ThemeUrl">         
+        </div>    
+        <div class="form-group">
+          <label for="exampleInputEmail1">Theme Body</label>
+          <textarea class="form-control" rows="5" name="themeBody" [(ngModel)]="ThemeBody"></textarea>         
+        </div>   
+        <div class="form-group">
+          <label for="exampleInputEmail1">Theme Description</label>
+          <input type="are" class="form-control" name="themeDescription" placeholder="Enter theme description" [(ngModel)]="ThemeDescription">         
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Category Id</label>
+            <input type="are" class="form-control" name="themeCategoryId" placeholder="Enter Category Id" [(ngModel)]="CategoryId">         
+          </div>
+        <button type="submit" class="btn btn-primary" (click)="addThemeData()">Submit</button>
+      </form>
+</div>-->
+
+<form [formGroup]="addThemeForm" class="addThemeForm">
+    <div class="form-group">
+      <label class="center-block">Theme Name:
+        <input class="form-control" formControlName="themeName">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Theme Url:
+        <input class="form-control" formControlName="themeUrl">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Theme Description:
+        <input class="form-control" formControlName="themeDescription">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Theme Body:
+        <input class="form-control" formControlName="themeBody">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Creation Date:
+        <input class="form-control" formControlName="creationDate">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Is Active:
+        <input class="form-control" formControlName="isActive">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Category Id:
+        <input class="form-control" formControlName="categoryId">
+      </label>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" (click)="addThemeData()" [disabled]="addThemeForm.invalid">
+            Submit
+        </button>
+    </div>
+  </form>

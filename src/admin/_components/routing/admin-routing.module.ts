@@ -5,12 +5,14 @@ import { AdminPanelComponent } from '../../_components/admin-panel/admin-panel.c
 import { AdminLayoutComponent } from '../../_components/admin-layout/admin-layout.component';
 import { AddThemeComponent } from '../../_components/add-theme/add-theme.component';
 import { AuthGuard }  from '../../../app/_services/auth-guard/auth-guard.service';
+import { LoginComponent } from '../../_components/login/login.component';
 
 
 
 const ADMIN_PANEL_ROUTES: Routes = [ 
     //{ path: '',  component: AdminPanelComponent },
-    { path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard], children: [
+    { path: 'admin', component: AdminPanelComponent, children: [ //, canActivate: [AuthGuard], children: [
+   //   { path: 'login', component: LoginComponent},
       { path: 'theme/add-new-theme', component: AddThemeComponent }
     ]}
 ];

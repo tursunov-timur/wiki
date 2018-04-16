@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   selectedTheme: Theme;
   categories: Category[];
   themes: Theme[]; 
+  currentCategory: Category;
 
   constructor( 
     private categoryService: CategoryService,
@@ -36,7 +37,10 @@ export class MenuComponent implements OnInit {
       //.filter(res => res)     
       .subscribe(
         data => this.categories = data
-      );      
+      );   
+      this.categoryService.getCurrentCategory()
+      .subscribe( data => this.currentCategory = data);
+   
   }
 
   loadTheme(currentCategory: Category){
@@ -49,6 +53,7 @@ export class MenuComponent implements OnInit {
 
   showCategoryList(currentCategory: Category) {
     this.categoryService.setCurrentCategory(currentCategory);
+    //console.log(currentCategory.CategoryName);
   }
 
 }

@@ -1,5 +1,5 @@
 <div *ngFor="let theme of themes">
     <!--<a routerLink='/theme'>{{theme.ThemeName}}</a>-->
     <!--<a [routerLink]="[{ outlets: { preview: '/theme/:theme.ThemeUrl' } }]" (click)="openTheme(theme)">{{theme.ThemeName}}</a>-->
-    <a [routerLink]="['/theme', theme.ThemeUrl]" (click)="openTheme(theme)">{{theme.ThemeName}}</a> 
+    <a [routerLink]="['/theme', theme.ThemeUrl]" (click)="openTheme(theme)" class="theme">{{theme.ThemeName}}</a> 
 </div>
