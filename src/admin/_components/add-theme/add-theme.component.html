@@ -56,10 +56,12 @@
       <label class="center-block">Is Active:
         <input class="form-control" formControlName="isActive">
       </label>
-    </div>
+    </div>   
     <div class="form-group">
-      <label class="center-block">Category Id:
-        <input class="form-control" formControlName="categoryId">
+      <label class="center-block">Category:
+        <select class="form-control" formControlName="categoryId">
+            <option *ngFor="let category of categories" [value]="category.$key">{{category.CategoryName}}</option>
+        </select>
       </label>
     </div>
     <div class="form-group">

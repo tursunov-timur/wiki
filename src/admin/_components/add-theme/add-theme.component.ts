@@ -6,6 +6,8 @@ import { CategoryService } from '../../../app/_services/category/category.servic
 import { ThemeService } from '../../../app/_services/theme/theme.service';
 import { AngularFireList } from 'angularfire2/database';
 import { Observable } from '@firebase/util/dist/esm/src/subscribe';
+import { CastExpr } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-add-theme',
@@ -16,6 +18,7 @@ export class AddThemeComponent implements OnInit {
 
   public newTheme;
   public addedTheme;
+  public categories: Category[];
   ThemeId: number;
   ThemeName: string;
   ThemeUrl: string;
@@ -36,9 +39,16 @@ export class AddThemeComponent implements OnInit {
     "categoryId": new FormControl("", Validators.required)
 });
 
-  constructor(public themeService: ThemeService) { }
+  constructor(
+    public themeService: ThemeService,
+    public categoryService: CategoryService
+  ) { }
 
   ngOnInit() {
+    this.categoryService.getCategories()    
+    .subscribe(
+      data => this.categories = data
+    );
   }
 
   themeName = new FormControl();
@@ -46,13 +56,13 @@ export class AddThemeComponent implements OnInit {
   addThemeData() {  
      
       this.addedTheme = new Theme(
-        3,
-        this.addThemeForm.get["themeName"],
-        this.ThemeDescription,
-        this.ThemeBody,        
-        true,
-        this.themeUrl,
-        this.CategoryId   
+        null,
+        null,
+        this.addThemeForm.get("themeName").value,        
+        this.addThemeForm.get("themeDescription").value,     
+        this.addThemeForm.get("themeBody").value,
+        this.addThemeForm.get("themeUrl").value,
+        2//this.addThemeForm.get("categoryId").value  
       );
 
       this.themeService.addTheme(this.addedTheme);

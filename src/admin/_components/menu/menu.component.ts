@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output   } from '@angular/core';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 
-import { Theme } from '../../_models/ThemeModel';
+import { Theme } from '../../../app/_models/ThemeModel';
 import { Category } from '../../_models/CategoryModel';
 import { CategoryService } from '../../../app/_services/category/category.service';
 import { ThemeService } from '../../../app/_services/theme/theme.service';
@@ -42,7 +42,7 @@ export class MenuComponent implements OnInit {
 
   loadTheme(currentCategory: Category){
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.CategoryId))    
+    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.$key))    
     .subscribe(
       data => this.themes = data
     );   

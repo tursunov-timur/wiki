@@ -3,6 +3,7 @@ import { CategoryService } from '../../_services/category/category.service';
 import { ThemeService } from '../../_services/theme/theme.service';
 import { Category } from '../../_models/CategoryModel';
 import { Theme } from '../../_models/ThemeModel';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-category-preview',
@@ -12,33 +13,42 @@ import { Theme } from '../../_models/ThemeModel';
 export class CategoryPreviewComponent implements OnInit {
 
   currentCategory: Category;
+  currentCategoryUrl: string;
   themes: Theme[];
 
   constructor(
     private categoryService: CategoryService,
-    private themeService: ThemeService
-  ) { }
 
-  ngOnChanges(){
+    private themeService: ThemeService,
+    private route: ActivatedRoute
+  ) {    } 
+
+  
+  loadCategory() {
+    
+
     this.categoryService.getCurrentCategory()
-    .subscribe( data => this.currentCategory = data);
+      .filter(x => x.CategoryUrl === this.currentCategoryUrl)
+      .subscribe( data => this.currentCategory = data);
     this.themeService.getThemes()
-   // .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
+    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.$key))    
     .subscribe(
       data => this.themes = data
     ); 
   }
-  
 
   ngOnInit() {
-    console.log("cat preview");
-    this.categoryService.getCurrentCategory()
-      .subscribe( data => this.currentCategory = data);
-    this.themeService.getThemes()
-    //.map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
-    .subscribe(
-      data => this.themes = data
-    ); 
+    //this.route.params.subscribe(params => console.log(params.category.CategoryUrl)); 
+    //this.currentCategoryUrl = route.snapshot.params['category.CategoryUrl'];
+    this.route.params.subscribe(params => 
+      {
+        this.currentCategoryUrl=params['category.CategoryUrl'];
+        //url => redirect 404
+        this.loadCategory();
+      }
+    );
+    //console.log("cat preview");
+    
    // console.log(this.currentCategory.CategoryName);
   }
 }

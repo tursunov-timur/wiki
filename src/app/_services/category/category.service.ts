@@ -31,12 +31,12 @@ export class CategoryService {
   setCurrentCategory(category: Category) {
     this.selectedCategory.next(category);
     this.getCurrentCategory();
-    console.log(category.CategoryName);
+    //console.log(category.CategoryName);
    // this.categoryObserver.next(category);;
   }
 
   getCurrentCategory():Observable<Category> {
-    console.log("get");
+    //console.log("get");
     return this.currentCategory;    
   }
 

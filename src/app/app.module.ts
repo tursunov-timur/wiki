@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from './_services/category/category.service';
@@ -50,7 +51,8 @@ import { AuthService } from './_services/auth/auth.service';
     HttpClientModule,
     BrowserModule,
     NgbModule.forRoot(),
-    FormsModule,    
+    ReactiveFormsModule,    
+    FormsModule,
     AdminModule,
     //AppRouterAdmin,
 //    SpinnerModule,

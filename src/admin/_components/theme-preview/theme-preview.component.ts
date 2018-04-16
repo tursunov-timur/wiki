@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Theme } from '../../_models/ThemeModel';
+import { Theme } from '../../../app/_models/ThemeModel';
 import { Category } from '../../_models/CategoryModel';
 import { CategoryService } from '../../../app/_services/category/category.service';
 import { ThemeService } from '../../../app/_services/theme/theme.service';

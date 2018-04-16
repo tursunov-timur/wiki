@@ -18,6 +18,7 @@ export class MenuThemeElementComponent implements OnInit {
   @Input() currentCategory: Category;
 
   selectedTheme: Theme;
+  selectedThemeUrl: string;
   categories: Category[];
   themes: Theme[]; 
 
@@ -26,12 +27,14 @@ export class MenuThemeElementComponent implements OnInit {
       private themeService: ThemeService,
       private route: ActivatedRoute,
       private router: Router
-    ) { }
+    ) {  
+      //this.route.params.subscribe(params => this.selectedThemeUrl=params['theme.ThemeUrl']);
+  }
 
   ngOnInit() {  
     //console.log(this.currentCategory.CategoryName);  
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.CategoryId))    
+    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.$key))    
     .subscribe(
       data => this.themes = data
     );

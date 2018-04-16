@@ -9,24 +9,15 @@ export class Theme {
         this.ThemeUrl = newTheme.ThemeUrl,
         this.CategoryId = newTheme.CategoryId;
     }*/
-
+   
     constructor(
+        public $key: string,
         public ThemeId: number,
         public ThemeName: string,
         public ThemeDescription: string,
-        public ThemeBody: string,     
-        public IsActive: boolean,
+        public ThemeBody: string, 
         public ThemeUrl: string,
         public CategoryId: number
     ){}
-
-    /*ThemeId: number;
-    ThemeName: string;
-    ThemeUrl: string;
-    ThemeDescription: string;
-    ThemePreview: string;
-    ThemeBody: string;
-    CreationDate: Date;
-    IsActive: boolean;
-    CategoryId: number;*/
+   
 }

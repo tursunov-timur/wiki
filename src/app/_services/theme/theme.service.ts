@@ -39,6 +39,12 @@ export class ThemeService {
   }
 
   addTheme(theme: Theme) {
+    var postData = {
+        
+    }    
+    const themesList = this.firebase.list<Theme>('/themes');    
+    const newId = this.firebase.createPushId();//themesList.push().key;
+    theme.$key = newId;
     this.firebase.list<Theme>('/themes').push(theme);
   }
   

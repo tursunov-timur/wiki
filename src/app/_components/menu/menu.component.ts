@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
 
   loadTheme(currentCategory: Category){
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.CategoryId))    
+    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.$key))    
     .subscribe(
       data => this.themes = data
     );   

@@ -1,4 +1,5 @@
 export class Theme {
+    $key:string;
     ThemeId: number;
     ThemeName: string;
     ThemeUrl: string;
@@ -7,5 +8,5 @@ export class Theme {
     ThemeBody: string;
     CreationDate: Date;
     IsActive: boolean;
-    CategoryId: number;
+    CategoryId: string;
 }
