@@ -28,15 +28,17 @@ export class AddThemeComponent implements OnInit {
   IsActive: boolean;
   CategoryId: number;
 
-  addThemeForm : FormGroup = new FormGroup({
-             
-    "themeName": new FormControl("", Validators.required),
-    "themeUrl": new FormControl("", Validators.required),
-    "themeDescription": new FormControl("", Validators.required),
-    "themeBody": new FormControl("", Validators.required),
-    "creationDate": new FormControl("", Validators.required),
-    "isActive": new FormControl("", Validators.required),
-    "categoryId": new FormControl("", Validators.required)
+  themeName = new FormControl();
+
+  addThemeForm: FormGroup = new FormGroup({
+
+    'themeName': new FormControl('', Validators.required),
+    'themeUrl': new FormControl('', Validators.required),
+    'themeDescription': new FormControl('', Validators.required),
+    'themeBody': new FormControl('', Validators.required),
+    'creationDate': new FormControl('', Validators.required),
+    'isActive': new FormControl('', Validators.required),
+    'categoryId': new FormControl('', Validators.required)
 });
 
   constructor(
@@ -45,24 +47,23 @@ export class AddThemeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.categoryService.getCategories()    
+    this.categoryService.getCategories()
     .subscribe(
       data => this.categories = data
     );
   }
 
-  themeName = new FormControl();
 
-  addThemeData() {  
-     
+
+  addThemeData() {
+
       this.addedTheme = new Theme(
         null,
-        null,
-        this.addThemeForm.get("themeName").value,        
-        this.addThemeForm.get("themeDescription").value,     
-        this.addThemeForm.get("themeBody").value,
-        this.addThemeForm.get("themeUrl").value,
-        2//this.addThemeForm.get("categoryId").value  
+        this.addThemeForm.get('themeName').value,
+        this.addThemeForm.get('themeDescription').value,
+        this.addThemeForm.get('themeBody').value,
+        this.addThemeForm.get('themeUrl').value,
+        '2'// this.addThemeForm.get('categoryId').value
       );
 
       this.themeService.addTheme(this.addedTheme);

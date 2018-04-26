@@ -16,41 +16,41 @@ export class ThemeService {
   private selectedTheme = new Subject<Theme>();
   currentTheme = this.selectedTheme.asObservable();
 
-  themesData: Observable<Theme[]>; 
+  themesData: Observable<Theme[]>;
 
   constructor(private http: HttpClientModule,
               private firebase: AngularFireDatabase) { }
 
-  //getThemes(currentCategory: Category){
-  getThemes(){
-      //this.themesData = this.firebase.list('/CategoriesRelations');
-        
-      this.themesData = this.firebase.list<Theme>('/themes').valueChanges();    
-      return this.themesData
+  // getThemes(currentCategory: Category){
+  getThemes() {
+      // this.themesData = this.firebase.list('/CategoriesRelations');
+
+      this.themesData = this.firebase.list<Theme>('/themes').valueChanges();
+      return this.themesData;
   }
 
-  getSelectedTheme():Observable<Theme> {
+  getSelectedTheme(): Observable<Theme> {
       return this.selectedTheme;
   }
 
-  setSelectedTheme(theme: Theme){
+  setSelectedTheme(theme: Theme) {
       this.selectedTheme.next(theme);
-      //console.log(this.selectedTheme.);
+      // console.log(this.selectedTheme.);
   }
 
   addTheme(theme: Theme) {
-    var postData = {
-        
-    }    
-    const themesList = this.firebase.list<Theme>('/themes');    
-    const newId = this.firebase.createPushId();//themesList.push().key;
+    /*var postData = {
+
+    }   */
+    const themesList = this.firebase.list<Theme>('/themes');
+    const newId = this.firebase.createPushId(); // themesList.push().key;
     theme.$key = newId;
     this.firebase.list<Theme>('/themes').push(theme);
   }
-  
 
-  //sendTheme(selectedTheme: Theme){
-  //  
-  //}
+
+  // sendTheme(selectedTheme: Theme){
+  //
+  // }
 
 }

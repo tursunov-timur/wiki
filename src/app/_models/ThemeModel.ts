@@ -1,6 +1,5 @@
 export class Theme {
-    $key:string;
-    ThemeId: number;
+    $key:string; 
     ThemeName: string;
     ThemeUrl: string;
     ThemeDescription: string;

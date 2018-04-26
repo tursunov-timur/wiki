@@ -2,7 +2,7 @@
 <div>
     <div *ngFor="let category of categories">
         <div>  
-            <a [routerLink]="['/category', category.CategoryUrl]" (click)="showCategoryList(category)" class="category">{{category.CategoryName}}</a>
+            <a [routerLink]="['/category', category.CategoryUrl]" class="category">{{category.CategoryName}}</a>
             <app-menu-theme-element [currentCategory]="category"></app-menu-theme-element>            
             <!--<app-theme-preview  class="main-panel" [currentTheme]="selectedTheme"></app-theme-preview>-->
         </div>

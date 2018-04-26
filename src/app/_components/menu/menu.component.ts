@@ -14,19 +14,19 @@ import { Observable } from '@firebase/util/dist/esm/src/subscribe';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  
+
   selectedTheme: Theme;
   categories: Category[];
-  themes: Theme[]; 
+  themes: Theme[];
   currentCategory: Category;
 
-  constructor( 
+  constructor(
     private categoryService: CategoryService,
     private themeService: ThemeService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
-    //this.router.navigate(["theme", this.selectedTheme.ThemeUrl]);
+  ) {
+    // this.router.navigate(["theme", this.selectedTheme.ThemeUrl]);
   }
 
   ngOnInit() {
@@ -34,26 +34,26 @@ export class MenuComponent implements OnInit {
         data => this.themes = data
       );
       this.categoryService.getCategories()
-      //.filter(res => res)     
+      // .filter(res => res)
       .subscribe(
         data => this.categories = data
-      );   
-      this.categoryService.getCurrentCategory()
-      .subscribe( data => this.currentCategory = data);
-   
+      );
+      // this.categoryService.getCurrentCategory()
+     // .subscribe( data => this.currentCategory = data);
+
   }
 
-  loadTheme(currentCategory: Category){
+  loadTheme(currentCategory: Category) {
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.$key))    
+    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.$key))
     .subscribe(
       data => this.themes = data
-    );   
+    );
   }
 
-  showCategoryList(currentCategory: Category) {
+  /*showCategoryList(currentCategory: Category) {
     this.categoryService.setCurrentCategory(currentCategory);
     //console.log(currentCategory.CategoryName);
-  }
+  }*/
 
 }

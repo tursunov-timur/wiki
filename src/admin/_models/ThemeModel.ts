@@ -11,13 +11,12 @@ export class Theme {
     }*/
    
     constructor(
-        public $key: string,
-        public ThemeId: number,
+        public $key: string,     
         public ThemeName: string,
         public ThemeDescription: string,
         public ThemeBody: string, 
         public ThemeUrl: string,
-        public CategoryId: number
+        public CategoryId: string
     ){}
    
 }

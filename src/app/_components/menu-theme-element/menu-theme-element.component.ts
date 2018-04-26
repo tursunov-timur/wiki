@@ -20,32 +20,39 @@ export class MenuThemeElementComponent implements OnInit {
   selectedTheme: Theme;
   selectedThemeUrl: string;
   categories: Category[];
-  themes: Theme[]; 
+  themes: Theme[];
 
-  constructor( 
+  constructor(
       private categoryService: CategoryService,
       private themeService: ThemeService,
       private route: ActivatedRoute,
       private router: Router
-    ) {  
-      //this.route.params.subscribe(params => this.selectedThemeUrl=params['theme.ThemeUrl']);
+    ) {
+      // this.route.params.subscribe(params => this.selectedThemeUrl=params['theme.ThemeUrl']);
   }
 
-  ngOnInit() {  
-    //console.log(this.currentCategory.CategoryName);  
+  ngOnInit() {
+    // console.log(this.currentCategory.CategoryName);
     this.themeService.getThemes()
-    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.$key))    
+    .map(themes => themes.filter(thm => thm.CategoryId === this.currentCategory.$key))
+    .subscribe(
+      data => this.themes = data
+    );
+  }
+
+  getCategoryThemeList(currentCategory: Category) {
+    this.themeService.getThemes()
+    .map(themes => themes.filter(thm => thm.CategoryId === currentCategory.$key))
     .subscribe(
       data => this.themes = data
     );
   }
 
 
-  openTheme(theme: Theme){  
-     //console.log(theme.ThemeName);
+  openTheme(theme: Theme) {
+     // console.log(theme.ThemeName);
        this.selectedTheme = theme;
        this.themeService.setSelectedTheme(theme);
    }
- 
 
 }

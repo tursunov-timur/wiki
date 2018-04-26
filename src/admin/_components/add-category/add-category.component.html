@@ -1,0 +1,27 @@
+<form [formGroup]="addCategoryForm" class="addCategoryForm">
+  <div class="form-group">
+    <label class="center-block">Category Name:
+      <input class="form-control" formControlName="categoryName">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Category Url:
+      <input class="form-control" formControlName="categoryUrl">
+    </label>
+  </div>  
+  <div class="form-group">
+    <label class="center-block">Is Active:
+      <input class="form-control" formControlName="isActive">
+    </label>
+  </div>   
+  <div class="form-group">
+    <label class="center-block">Sort:
+      <input class="form-control" formControlName="Sort">
+    </label>
+  </div>  
+  <div class="form-group">
+      <button class="btn btn-success" (click)="addCategoryData()" [disabled]="addCategoryForm.invalid">
+          Submit
+      </button>
+  </div>
+</form>

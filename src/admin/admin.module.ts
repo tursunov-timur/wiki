@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './_components/login/login.component';
 import { CategoryService } from '../app/_services/category/category.service';
 import { ThemeService } from '../app/_services/theme/theme.service';
+import { AddCategoryComponent } from './_components/add-category/add-category.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ThemeService } from '../app/_services/theme/theme.service';
     ThemePreviewComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    AddCategoryComponent 
   ],
   providers: [
     CategoryService,

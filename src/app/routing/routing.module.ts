@@ -8,9 +8,11 @@ import { FooterComponent } from '../_components/footer/footer.component';
 import { AdminPanelComponent } from '../../admin/_components/admin-panel/admin-panel.component';
 import { MainPanelComponent } from '../_components/main-panel/main-panel.component';
 import { MenuThemeElementComponent } from '../_components/menu-theme-element/menu-theme-element.component';
-//import { AppRouterAdmin } from '../../admin/_components/routing/admin-routing.module';
+// import { AppRouterAdmin } from '../../admin/_components/routing/admin-routing.module';
 import { AddThemeComponent } from '../../admin/_components/add-theme/add-theme.component';
-import { AuthGuard }  from '../_services/auth-guard/auth-guard.service';
+import { AuthGuard } from '../_services/auth-guard/auth-guard.service';
+import { Error404PageComponent } from '../_components/error-404-page/error-404-page.component';
+
 
 
 
@@ -19,24 +21,25 @@ import { AuthGuard }  from '../_services/auth-guard/auth-guard.service';
 ];*/
 
 const routes: Routes = [
-  { path: '', component: MainPanelComponent, children:[
-      { path: 'theme/:theme.ThemeUrl', component: ThemePreviewComponent },    
+  { path: '', component: MainPanelComponent, children: [
+      { path: 'theme/:theme.ThemeUrl', component: ThemePreviewComponent },
       { path: 'category/:category.CategoryUrl', component: CategoryPreviewComponent }
   ]},
-  { path: 'admin', component: AdminPanelComponent }//, canActivate: [AuthGuard] }//, children: [
-     
-  
+  { path: 'admin', component: AdminPanelComponent },
+  { path: '**', component: Error404PageComponent }// , canActivate: [AuthGuard] }//, children: [
+
+
    // { path: 'theme/add-new-theme', component: AddThemeComponent }
-    //{ path: '', loadChildren: ()=> AppRouterAdmin}
-//]}
+    // { path: '', loadChildren: ()=> AppRouterAdmin}
+// ]}
  // { path: 'admin', component: AdminPanelComponent, data: { title: 'Admin Panel' }, },
 ];
 
 
 
 @NgModule({
-  exports: [ 
-    RouterModule 
+  exports: [
+    RouterModule
   ],
   imports: [
     RouterModule.forRoot(routes)
